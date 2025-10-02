@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Medspa Shopify Theme &mdash; Live Preview</title>
+    <meta name="description" content="Static preview of the Medspa Shopify Theme using representative demo content.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/theme.css">
+    <link rel="stylesheet" href="preview.css">
+  </head>
+  <body>
+    <a class="skip-to-content" href="#main">Skip to content</a>
+
+    <header class="site-header" role="banner">
+      <div class="site-header__top">
+        <div class="site-header__branding">
+          <span class="site-header__title">Medspa Collective</span>
+          <p class="site-header__tagline">Elevated care for radiant confidence</p>
+        </div>
+
+        <div class="site-header__actions">
+          <form role="search" class="site-header__search">
+            <label class="visually-hidden" for="preview-search">Search</label>
+            <input id="preview-search" type="search" name="q" placeholder="Search treatments" autocomplete="off">
+            <button type="submit" class="btn btn--icon" aria-label="Search">
+              <svg class="icon icon-search" viewBox="0 0 24 24" role="img" aria-hidden="true">
+                <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="1.5" />
+                <path d="m20 20-3.4-3.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+            </button>
+          </form>
+          <div class="site-header__cta">
+            <a class="btn" href="#visit">Book consultation</a>
+            <a class="btn btn--ghost" href="#cart" aria-label="View cart">
+              <svg class="icon icon-bag" viewBox="0 0 24 24" role="img" aria-hidden="true">
+                <path d="M6 8h12l-1 12H7z" fill="none" stroke="currentColor" stroke-width="1.5" />
+                <path d="M9 8V6a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <nav class="site-header__nav" role="navigation">
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+          <span class="menu-toggle__label">Menu</span>
+          <span class="menu-toggle__icon" aria-hidden="true"><span></span></span>
+        </button>
+        <ul id="primary-navigation" class="site-nav" role="list">
+          <li class="site-nav__item"><a class="site-nav__link" href="#treatments">Treatments</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="#products">Shop</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="#experts">Providers</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="#testimonials">Testimonials</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="#visit">Visit us</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main" class="main-content" tabindex="-1">
+      <section class="hero-banner" style="background-image: url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=2000&q=80');">
+        <div class="hero-banner__inner">
+          <p class="hero-banner__eyebrow section-eyebrow">Medspa &amp; wellness</p>
+          <h1 class="hero-banner__heading">Science-led skin transformations</h1>
+          <p class="hero-banner__copy">Personalized treatments and cosmeceuticals designed to restore balance, clarity, and confidence.</p>
+          <div class="hero-banner__actions">
+            <a class="btn" href="#visit">Schedule a visit</a>
+            <a class="btn btn--ghost" href="#products">Shop skincare</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="treatments" class="feature-tiles">
+        <div class="feature-tiles__header">
+          <p class="section-eyebrow">Why clients trust us</p>
+          <h2 class="section-heading">Medically guided wellness</h2>
+          <p class="section-copy">Every treatment plan is crafted by licensed clinicians who blend advanced technology with a soothing spa environment.</p>
+        </div>
+        <div class="feature-tiles__grid">
+          <article class="feature-tile">
+            <h3 class="feature-tile__title">Board-certified providers</h3>
+            <p class="feature-tile__text">Receive care from experts in dermatology, aesthetics, and integrative medicine.</p>
+          </article>
+          <article class="feature-tile">
+            <h3 class="feature-tile__title">Clinical-grade devices</h3>
+            <p class="feature-tile__text">From Hydrafacial&reg; to IPL, we invest in the safest, most effective technology.</p>
+          </article>
+          <article class="feature-tile">
+            <h3 class="feature-tile__title">Holistic programs</h3>
+            <p class="feature-tile__text">Pair in-clinic services with at-home protocols tailored to your skin goals.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="products" class="featured-collection">
+        <div class="featured-collection__header">
+          <p class="section-eyebrow">Curated skincare</p>
+          <h2 class="section-heading">Medical-grade essentials</h2>
+          <p class="section-copy">Shop the dermatologist-approved formulas featured in our treatment rooms.</p>
+        </div>
+        <div class="featured-collection__grid">
+          <article class="product-card">
+            <a class="product-card__media" href="#">
+              <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=800&q=80" alt="Hydrating serum bottle">
+            </a>
+            <div class="product-card__details">
+              <h3 class="product-card__title"><a href="#">Peptide Renewal Serum</a></h3>
+              <span class="product-card__price">$88.00</span>
+              <button class="btn btn--ghost" type="button">Add to cart</button>
+            </div>
+          </article>
+          <article class="product-card">
+            <a class="product-card__media" href="#">
+              <img src="https://images.unsplash.com/photo-1585704032915-9e3cc858bdfd?auto=format&fit=crop&w=800&q=80" alt="SPF skincare duo">
+            </a>
+            <div class="product-card__details">
+              <h3 class="product-card__title"><a href="#">Mineral Defense SPF 50</a></h3>
+              <span class="product-card__price">$54.00</span>
+              <button class="btn btn--ghost" type="button">Add to cart</button>
+            </div>
+          </article>
+          <article class="product-card">
+            <a class="product-card__media" href="#">
+              <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?auto=format&fit=crop&w=800&q=80" alt="Skincare cleanser">
+            </a>
+            <div class="product-card__details">
+              <h3 class="product-card__title"><a href="#">Enzyme Brightening Cleanser</a></h3>
+              <span class="product-card__price">$38.00</span>
+              <button class="btn btn--ghost" type="button">Add to cart</button>
+            </div>
+          </article>
+          <article class="product-card">
+            <a class="product-card__media" href="#">
+              <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=800&q=80" alt="Luxury face oil">
+            </a>
+            <div class="product-card__details">
+              <h3 class="product-card__title"><a href="#">Rejuvenating Night Oil</a></h3>
+              <span class="product-card__price">$96.00</span>
+              <button class="btn btn--ghost" type="button">Add to cart</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="experts" class="main-page">
+        <div class="main-page__header">
+          <p class="section-eyebrow">Meet the experts</p>
+          <h2 class="section-heading">A collaborative team dedicated to long-term skin health</h2>
+          <p class="section-copy">Our aesthetic medicine providers, RNs, and holistic nutritionists design comprehensive plans that evolve with your skin.</p>
+        </div>
+        <div class="main-page__content">
+          <article class="content-block">
+            <h3 class="content-block__title">Treatment specialties</h3>
+            <ul>
+              <li>Microneedling with PRP</li>
+              <li>Advanced laser resurfacing</li>
+              <li>Lymphatic sculpting facials</li>
+              <li>Bio-revitalizing injectables</li>
+            </ul>
+          </article>
+          <article class="content-block">
+            <h3 class="content-block__title">Consultation experience</h3>
+            <p>Every visit begins with a complexion analysis, lifestyle review, and custom roadmap that aligns with your comfort level, timeline, and budget.</p>
+            <a class="btn" href="#visit">Start your journey</a>
+          </article>
+        </div>
+      </section>
+
+      <section id="testimonials" class="testimonials">
+        <div class="testimonials__header">
+          <p class="section-eyebrow">Client love</p>
+          <h2 class="section-heading">Five-star experiences</h2>
+        </div>
+        <div class="testimonials__list">
+          <figure class="testimonial">
+            <blockquote class="testimonial__quote">“The team created a personalized plan that revitalized my skin and confidence in just three visits.”</blockquote>
+            <figcaption class="testimonial__author">
+              <span class="testimonial__name">Alexandra</span>
+              <span class="testimonial__details">Hydrafacial client</span>
+            </figcaption>
+          </figure>
+          <figure class="testimonial">
+            <blockquote class="testimonial__quote">“Their providers explained every step and made sure my rosacea treatment felt restorative instead of clinical.”</blockquote>
+            <figcaption class="testimonial__author">
+              <span class="testimonial__name">Priya</span>
+              <span class="testimonial__details">LED therapy series</span>
+            </figcaption>
+          </figure>
+          <figure class="testimonial">
+            <blockquote class="testimonial__quote">“I appreciate the home care plans as much as the in-clinic treatments. My routine finally feels intentional.”</blockquote>
+            <figcaption class="testimonial__author">
+              <span class="testimonial__name">Jordan</span>
+              <span class="testimonial__details">Integrative skincare member</span>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="newsletter">
+        <div class="newsletter__content">
+          <p class="section-eyebrow">Join the collective</p>
+          <h2 class="section-heading">Glow notes straight to your inbox</h2>
+          <p class="section-copy">Receive skincare education, seasonal promotions, and appointment availability first.</p>
+        </div>
+        <div class="newsletter__form">
+          <form class="preview-form" action="#" method="post">
+            <div class="form-field">
+              <label class="visually-hidden" for="preview-email">Email address</label>
+              <input id="preview-email" type="email" name="email" placeholder="Email address" required>
+              <button class="btn" type="submit">Subscribe</button>
+            </div>
+            <p class="form-success" role="status" tabindex="-1" hidden>Thanks for joining! Check your inbox for a welcome note.</p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer id="visit" class="site-footer" role="contentinfo">
+      <div class="site-footer__top">
+        <div class="site-footer__branding">
+          <h2 class="site-footer__title">Glow with confidence</h2>
+          <p class="site-footer__subtitle">Curated medspa experiences and skincare</p>
+          <ul class="social-links" role="list">
+            <li><a class="social-links__item" href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a></li>
+            <li><a class="social-links__item" href="https://pinterest.com" target="_blank" rel="noreferrer">Pinterest</a></li>
+            <li><a class="social-links__item" href="https://tiktok.com" target="_blank" rel="noreferrer">TikTok</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__newsletter">
+          <h3 class="site-footer__newsletter-title">Visit our flagship</h3>
+          <p>1200 Radiance Avenue, Suite 200<br>Scottsdale, AZ 85251</p>
+          <p><strong>Hours:</strong> Tue&ndash;Sat 10am&ndash;6pm</p>
+          <a class="btn" href="https://maps.google.com" target="_blank" rel="noreferrer">Get directions</a>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <small>&copy; <span id="preview-year"></span> Medspa Collective. All rights reserved.</small>
+      </div>
+    </footer>
+
+    <script src="../assets/theme.js"></script>
+    <script src="preview.js"></script>
+  </body>
+</html>
