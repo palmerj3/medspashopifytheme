@@ -1,0 +1,98 @@
+[
+  {
+    "name": "Theme settings",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Brand identity"
+      },
+      {
+        "type": "font_picker",
+        "id": "heading_font",
+        "label": "Heading font",
+        "default": "playfair_display_n4"
+      },
+      {
+        "type": "font_picker",
+        "id": "body_font",
+        "label": "Body font",
+        "default": "inter_n4"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Accent color",
+        "default": "#b29d8c"
+      },
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Page background",
+        "default": "#f6f4f2"
+      },
+      {
+        "type": "color",
+        "id": "color_surface",
+        "label": "Surface background",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "color_background_muted",
+        "label": "Muted background",
+        "default": "#ded7d0"
+      },
+      {
+        "type": "color",
+        "id": "color_border",
+        "label": "Border color",
+        "default": "#d0c7bf"
+      },
+      {
+        "type": "color",
+        "id": "color_ink",
+        "label": "Primary text color",
+        "default": "#1d1d1b"
+      },
+      {
+        "type": "header",
+        "content": "Buttons"
+      },
+      {
+        "type": "text",
+        "id": "primary_button_label",
+        "label": "Default primary button label",
+        "default": "Book now"
+      },
+      {
+        "type": "textarea",
+        "id": "announcement_bar_text",
+        "label": "Announcement message",
+        "default": "Complimentary skin consultations for new guests."
+      }
+    ]
+  },
+  {
+    "name": "Announcement bar",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_announcement_bar",
+        "label": "Show announcement bar",
+        "default": false
+      },
+      {
+        "type": "color",
+        "id": "announcement_background",
+        "label": "Background color",
+        "default": "#ded7d0"
+      },
+      {
+        "type": "color",
+        "id": "announcement_text",
+        "label": "Text color",
+        "default": "#1d1d1b"
+      }
+    ]
+  }
+]

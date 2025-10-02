@@ -1,0 +1,64 @@
+<section class="newsletter">
+  <div class="newsletter__content">
+    <p class="section-eyebrow">{{ section.settings.eyebrow }}</p>
+    <h2 class="section-heading">{{ section.settings.heading }}</h2>
+    <p class="section-copy">{{ section.settings.copy }}</p>
+  </div>
+  <div class="newsletter__form">
+    {% form 'customer', id: 'NewsletterSection' %}
+      <input type="hidden" name="contact[tags]" value="newsletter">
+      <div class="form-field">
+        <input type="email" name="contact[email]" value="{{ form.email }}" placeholder="{{ section.settings.placeholder }}" aria-label="{{ section.settings.placeholder }}" required>
+        <button class="btn" type="submit">{{ section.settings.cta }}</button>
+      </div>
+      {% if form.posted_successfully? %}
+        <p class="form-success">{{ 'general.newsletter_form.confirmation' | t }}</p>
+      {% elsif form.errors %}
+        <p class="form-error">{{ form.errors | default_errors }}</p>
+      {% endif %}
+    {% endform %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Newsletter",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Join the collective"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Glow notes straight to your inbox"
+    },
+    {
+      "type": "textarea",
+      "id": "copy",
+      "label": "Copy",
+      "default": "Receive skincare education, seasonal promotions, and appointment availability first."
+    },
+    {
+      "type": "text",
+      "id": "placeholder",
+      "label": "Email placeholder",
+      "default": "Email address"
+    },
+    {
+      "type": "text",
+      "id": "cta",
+      "label": "Button label",
+      "default": "Subscribe"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Newsletter"
+    }
+  ]
+}
+{% endschema %}

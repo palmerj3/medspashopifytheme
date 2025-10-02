@@ -1,0 +1,61 @@
+{
+  "general": {
+    "search": {
+      "placeholder": "Search treatments or products",
+      "submit": "Search",
+      "title": "Search",
+      "results_with_count": "{{ count }} results for \"{{ terms }}\"",
+      "no_results_html": "No matches found for \"{{ terms }}\""
+    },
+    "newsletter_form": {
+      "email_placeholder": "Email address",
+      "confirmation": "Thank you for joining our medspa community."
+    },
+    "cart": {
+      "title": "Cart"
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next",
+      "page": "Page {{ number }}"
+    },
+    "navigation": {
+      "menu": "Menu"
+    }
+  },
+  "layout": {
+    "customer": {
+      "account": "Account"
+    }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to cart",
+      "view_options": "View options",
+      "quantity": "Quantity",
+      "from_text_html": "From {{ price }}",
+      "sold_out": "Sold out"
+    }
+  },
+  "blogs": {
+    "comments": {
+      "comments_with_count": "{{ count }} comments",
+      "name": "Name",
+      "email": "Email",
+      "message": "Comment",
+      "post": "Post comment",
+      "success": "Thanks for sharing your thoughts."
+    },
+    "article": {
+      "read_more": "Continue reading"
+    }
+  },
+  "accessibility": {
+    "skip_to_content": "Skip to content"
+  },
+  "sections": {
+    "featured_collection": {
+      "no_products": "No products found in this collection"
+    }
+  }
+}

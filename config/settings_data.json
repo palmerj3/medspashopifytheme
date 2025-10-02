@@ -1,0 +1,35 @@
+{
+  "current": "Default",
+  "presets": {
+    "Default": {
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "cta_link": "/pages/book"
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "settings": {},
+          "blocks": {
+            "social-1": {
+              "type": "link",
+              "settings": {
+                "label": "Instagram",
+                "link": "https://instagram.com"
+              }
+            }
+          },
+          "block_order": [
+            "social-1"
+          ]
+        }
+      },
+      "order": [
+        "header",
+        "footer"
+      ]
+    }
+  }
+}

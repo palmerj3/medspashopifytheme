@@ -1,0 +1,80 @@
+<section class="testimonials">
+  <div class="testimonials__header">
+    <p class="section-eyebrow">{{ section.settings.eyebrow }}</p>
+    <h2 class="section-heading">{{ section.settings.heading }}</h2>
+  </div>
+  <div class="testimonials__list">
+    {% for block in section.blocks %}
+      <figure class="testimonial">
+        <blockquote class="testimonial__quote">{{ block.settings.quote }}</blockquote>
+        <figcaption class="testimonial__author">
+          <span class="testimonial__name">{{ block.settings.name }}</span>
+          <span class="testimonial__details">{{ block.settings.details }}</span>
+        </figcaption>
+      </figure>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Client love"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Five-star experiences"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "quote",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote",
+          "default": "The team created a personalized plan that revitalized my skin and confidence."
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Alexandra"
+        },
+        {
+          "type": "text",
+          "id": "details",
+          "label": "Details",
+          "default": "Hydrafacial client"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Testimonials",
+      "blocks": [
+        {
+          "type": "quote"
+        },
+        {
+          "type": "quote"
+        },
+        {
+          "type": "quote"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

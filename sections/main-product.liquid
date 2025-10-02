@@ -1,0 +1,67 @@
+<section class="product-template">
+  <div class="product-template__gallery">
+    {% if product.media.size > 0 %}
+      <div class="product-gallery">
+        {% for media in product.media %}
+          <div class="product-gallery__item">
+            {{ media | media_tag }}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+  <div class="product-template__details">
+    <h1 class="product-template__title">{{ product.title }}</h1>
+    {% if product.vendor != blank %}
+      <p class="product-template__vendor">{{ product.vendor }}</p>
+    {% endif %}
+    <div class="product-template__price">
+      {% if product.price_varies %}
+        {{ 'products.product.from_text_html' | t: price: product.price | money }}
+      {% else %}
+        {{ product.price | money }}
+      {% endif %}
+    </div>
+    {% if product.metafields.descriptors.subtitle %}
+      <p class="product-template__subtitle">{{ product.metafields.descriptors.subtitle }}</p>
+    {% endif %}
+    {% if product.description != blank %}
+      <div class="product-template__description">{{ product.description }}</div>
+    {% endif %}
+    <form method="post" action="/cart/add" class="product-template__form" enctype="multipart/form-data">
+      {% unless product.has_only_default_variant %}
+        {% for option in product.options_with_values %}
+          {% assign option_id = 'Option-' | append: section.id | append: '-' | append: forloop.index %}
+          <div class="product-template__option">
+            <label for="{{ option_id }}">{{ option.name }}</label>
+            <select id="{{ option_id }}" name="options[{{ option.name }}]">
+              {% for value in option.values %}
+                <option value="{{ value }}" {% if option.selected_value == value %}selected{% endif %}>{{ value }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        {% endfor %}
+      {% endunless %}
+      <div class="product-template__quantity">
+        {% assign quantity_id = 'Quantity-' | append: section.id %}
+        <label for="{{ quantity_id }}">{{ 'products.product.quantity' | t }}</label>
+        <input id="{{ quantity_id }}" type="number" name="quantity" min="1" value="1">
+      </div>
+      <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+      <button type="submit" class="btn btn--full" {% unless product.selected_or_first_available_variant.available %}disabled{% endunless %}>
+        {% if product.selected_or_first_available_variant.available %}
+          {{ 'products.product.add_to_cart' | t }}
+        {% else %}
+          {{ 'products.product.sold_out' | t }}
+        {% endif %}
+      </button>
+    </form>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product information",
+  "settings": []
+}
+{% endschema %}

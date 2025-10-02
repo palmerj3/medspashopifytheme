@@ -1,0 +1,81 @@
+<header class="site-header" role="banner">
+  <div class="site-header__top">
+    <div class="site-header__branding">
+      {% if section.settings.logo != blank %}
+        <a href="{{ routes.root_url }}" class="site-header__logo">
+          <img src="{{ section.settings.logo | image_url: width: 320 }}" alt="{{ section.settings.logo.alt | escape | default: shop.name }}">
+        </a>
+      {% else %}
+        <a href="{{ routes.root_url }}" class="site-header__title">{{ shop.name }}</a>
+      {% endif %}
+      {% if section.settings.tagline != blank %}
+        <p class="site-header__tagline">{{ section.settings.tagline }}</p>
+      {% endif %}
+    </div>
+
+    <div class="site-header__actions">
+      {% if section.settings.show_search %}
+        <form action="{{ routes.search_url }}" method="get" role="search" class="site-header__search">
+          <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}" aria-label="{{ 'general.search.placeholder' | t }}">
+          <button type="submit" class="btn btn--icon" aria-label="{{ 'general.search.submit' | t }}">{% render 'icon-search' %}</button>
+        </form>
+      {% endif %}
+      <div class="site-header__cta">
+        {% assign primary_label = section.settings.cta_label | default: settings.primary_button_label %}
+        {% if primary_label != blank and section.settings.cta_link != blank %}
+          <a class="btn" href="{{ section.settings.cta_link }}">{{ primary_label }}</a>
+        {% endif %}
+        {% if shop.customer_accounts_enabled %}
+          <a class="btn btn--ghost" href="{{ routes.account_login_url }}">{% render 'icon-user' %} {{ 'layout.customer.account' | t }}</a>
+        {% endif %}
+        <a class="btn btn--ghost" href="{{ routes.cart_url }}">{% render 'icon-bag' %} <span class="visually-hidden">{{ 'general.cart.title' | t }}</span></a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="site-header__nav" role="navigation">
+    {% render 'menu-drawer', menu: section.settings.menu %}
+  </nav>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "Elevated care for radiant confidence"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Main menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_search",
+      "label": "Show search",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Primary action label",
+      "default": "Book consultation"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Primary action link"
+    }
+  ]
+}
+{% endschema %}
