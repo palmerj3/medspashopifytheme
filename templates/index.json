@@ -1,0 +1,85 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-banner",
+      "settings": {
+        "eyebrow": "Advanced medspa",
+        "heading": "Calm, restorative aesthetics",
+        "copy": "Neutral-toned treatment suites and science-backed skincare designed for luminous results.",
+        "primary_label": "Book consultation",
+        "secondary_label": "Browse treatments"
+      }
+    },
+    "features": {
+      "type": "feature-tiles",
+      "blocks": {
+        "feature-1": {
+          "type": "tile",
+          "settings": {
+            "title": "Licensed specialists",
+            "text": "Every visit begins with a thorough assessment led by medical providers."
+          }
+        },
+        "feature-2": {
+          "type": "tile",
+          "settings": {
+            "title": "Serene environment",
+            "text": "Minimal, neutral interiors that let you unwind the moment you arrive."
+          }
+        },
+        "feature-3": {
+          "type": "tile",
+          "settings": {
+            "title": "Personalized plans",
+            "text": "Layered treatments and maintenance routines for long-term skin health."
+          }
+        }
+      },
+      "block_order": [
+        "feature-1",
+        "feature-2",
+        "feature-3"
+      ]
+    },
+    "collection": {
+      "type": "featured-collection",
+      "settings": {}
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonial-1": {
+          "type": "quote",
+          "settings": {
+            "quote": "Their Hydrafacial protocol left my skin glassy and calm.",
+            "name": "Morgan",
+            "details": "Monthly member"
+          }
+        },
+        "testimonial-2": {
+          "type": "quote",
+          "settings": {
+            "quote": "I love the curated product recommendations after each visit.",
+            "name": "Danielle",
+            "details": "Acne bootcamp client"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial-1",
+        "testimonial-2"
+      ]
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "features",
+    "collection",
+    "testimonials",
+    "newsletter"
+  ]
+}

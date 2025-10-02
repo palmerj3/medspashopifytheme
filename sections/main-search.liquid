@@ -1,0 +1,34 @@
+<section class="search-template">
+  <header class="search-template__header">
+    <h1 class="search-template__title">{{ 'general.search.title' | t }}</h1>
+    <form action="{{ routes.search_url }}" method="get" role="search" class="search-template__form">
+      <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}" aria-label="{{ 'general.search.placeholder' | t }}">
+      <button class="btn" type="submit">{{ 'general.search.submit' | t }}</button>
+    </form>
+  </header>
+  {% if search.performed %}
+    <p class="search-template__results">{{ 'general.search.results_with_count' | t: terms: search.terms, count: search.results_count }}</p>
+    <div class="product-grid">
+      {% for item in search.results %}
+        {% case item.object_type %}
+          {% when 'product' %}
+            {% render 'product-card', product: item %}
+          {% else %}
+            <article class="search-result">
+              <h2 class="search-result__title"><a href="{{ item.url }}">{{ item.title }}</a></h2>
+              <p class="search-result__excerpt">{{ item.content | strip_html | truncate: 160 }}</p>
+            </article>
+        {% endcase %}
+      {% else %}
+        <p>{{ 'general.search.no_results_html' | t: terms: search.terms }}</p>
+      {% endfor %}
+    </div>
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "Search results",
+  "settings": []
+}
+{% endschema %}

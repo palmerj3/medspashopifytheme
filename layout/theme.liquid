@@ -1,0 +1,51 @@
+<!doctype html>
+<html class="no-js" lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{{ page_title }}{% if current_tags %} – {{ current_tags | join: ', ' }}{% endif %}{% if current_page != 1 %} – {{ 'general.pagination.page' | t: number: current_page }}{% endif %}{% unless page_title contains shop.name %} – {{ shop.name }}{% endunless %}</title>
+    <meta name="description" content="{{ page_description | escape }}">
+    {{ settings.heading_font | font_face }}
+    {{ settings.body_font | font_face }}
+    {{ 'theme.css' | asset_url | stylesheet_tag }}
+    <style>
+      :root {
+        --color-background: {{ settings.color_background }};
+        --color-surface: {{ settings.color_surface }};
+        --color-background-muted: {{ settings.color_background_muted }};
+        --color-background-strong: {{ settings.color_background | color_mix: settings.color_surface, 50 }};
+        --color-ink: {{ settings.color_ink }};
+        --color-accent: {{ settings.color_accent }};
+        --color-border: {{ settings.color_border }};
+        --font-body: {{ settings.body_font.family }}, {{ settings.body_font.fallback_families }};
+        --font-heading: {{ settings.heading_font.family }}, {{ settings.heading_font.fallback_families }};
+      }
+      body {
+        font-family: var(--font-body);
+      }
+      .section-heading,
+      .hero-banner__heading,
+      .site-header__title,
+      .site-footer__title,
+      .site-footer__newsletter-title,
+      .product-template__title {
+        font-family: var(--font-heading);
+      }
+    </style>
+    {{ content_for_header }}
+  </head>
+  <body class="template-{{ template | handle }}">
+    <a class="skip-to-content" href="#MainContent">{{ 'accessibility.skip_to_content' | t }}</a>
+    {% if settings.show_announcement_bar %}
+      <div class="announcement-bar" style="background: {{ settings.announcement_background }}; color: {{ settings.announcement_text }};">
+        <p>{{ settings.announcement_bar_text }}</p>
+      </div>
+    {% endif %}
+    {% section 'header' %}
+    <main id="MainContent" class="main-content" role="main">
+      {{ content_for_layout }}
+    </main>
+    {% section 'footer' %}
+  </body>
+</html>

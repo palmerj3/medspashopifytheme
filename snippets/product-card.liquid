@@ -1,0 +1,27 @@
+<article class="product-card">
+  <a class="product-card__media" href="{{ product.url }}">
+    {% if product.featured_image %}
+      <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.featured_image.alt | escape }}" loading="lazy">
+    {% else %}
+      <div class="product-card__placeholder"></div>
+    {% endif %}
+  </a>
+  <div class="product-card__details">
+    <h3 class="product-card__title"><a href="{{ product.url }}">{{ product.title }}</a></h3>
+    <div class="product-card__price">
+      {% if product.price_varies %}
+        {{ 'products.product.from_text_html' | t: price: product.price | money }}
+      {% else %}
+        {{ product.price | money }}
+      {% endif %}
+    </div>
+    {% unless product.has_only_default_variant %}
+      <a class="btn btn--ghost" href="{{ product.url }}">{{ 'products.product.view_options' | t }}</a>
+    {% else %}
+      <form method="post" action="/cart/add" class="product-card__form">
+        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+        <button class="btn btn--ghost" type="submit">{{ 'products.product.add_to_cart' | t }}</button>
+      </form>
+    {% endunless %}
+  </div>
+</article>

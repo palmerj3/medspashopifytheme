@@ -1,0 +1,37 @@
+<section class="collection-template">
+  <header class="collection-template__header">
+    <h1 class="collection-template__title">{{ collection.title }}</h1>
+    {% if collection.description != blank %}
+      <div class="collection-template__description">{{ collection.description }}</div>
+    {% endif %}
+  </header>
+  <div class="collection-template__products">
+    {% paginate collection.products by section.settings.products_per_page %}
+      <div class="product-grid">
+        {% for product in collection.products %}
+          {% render 'product-card', product: product %}
+        {% else %}
+          <p>{{ 'collections.general.no_matches' | t }}</p>
+        {% endfor %}
+      </div>
+      {% render 'pagination', paginate: paginate %}
+    {% endpaginate %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection page",
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "label": "Products per page",
+      "min": 6,
+      "max": 48,
+      "step": 6,
+      "default": 24
+    }
+  ]
+}
+{% endschema %}

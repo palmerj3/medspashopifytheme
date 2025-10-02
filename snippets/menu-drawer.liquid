@@ -1,0 +1,12 @@
+{% assign navigation_menu = menu | default: linklists.main-menu %}
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+  <span class="menu-toggle__label">{{ 'general.navigation.menu' | t }}</span>
+  <span class="menu-toggle__icon" aria-hidden="true"><span></span></span>
+</button>
+<ul id="primary-navigation" class="site-nav" role="list">
+  {% for link in navigation_menu.links %}
+    <li class="site-nav__item">
+      <a class="site-nav__link" href="{{ link.url }}" {% if link.current %}aria-current="page"{% endif %}>{{ link.title }}</a>
+    </li>
+  {% endfor %}
+</ul>

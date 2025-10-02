@@ -1,0 +1,86 @@
+<section class="feature-tiles">
+  <div class="feature-tiles__header">
+    <p class="section-eyebrow">{{ section.settings.eyebrow }}</p>
+    <h2 class="section-heading">{{ section.settings.heading }}</h2>
+    <p class="section-copy">{{ section.settings.copy }}</p>
+  </div>
+  <div class="feature-tiles__grid">
+    {% for block in section.blocks %}
+      <article class="feature-tile">
+        {% if block.settings.icon != blank %}
+          <img src="{{ block.settings.icon | image_url: width: 120 }}" alt="" class="feature-tile__icon" loading="lazy">
+        {% endif %}
+        <h3 class="feature-tile__title">{{ block.settings.title }}</h3>
+        <p class="feature-tile__text">{{ block.settings.text }}</p>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Feature tiles",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Why clients trust us"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Medically guided wellness"
+    },
+    {
+      "type": "textarea",
+      "id": "copy",
+      "label": "Copy",
+      "default": "Every treatment plan is crafted by licensed clinicians who blend advanced technology with a soothing spa environment."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tile",
+      "name": "Tile",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Board-certified providers"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Receive care from experts in dermatology, aesthetics, and wellness."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Feature tiles",
+      "blocks": [
+        {
+          "type": "tile"
+        },
+        {
+          "type": "tile"
+        },
+        {
+          "type": "tile"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

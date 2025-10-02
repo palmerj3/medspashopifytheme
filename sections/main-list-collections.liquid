@@ -1,0 +1,33 @@
+<section class="list-collections-template">
+  <header class="list-collections-template__header">
+    <h1 class="section-heading">{{ 'collections.general.catalog_title' | t }}</h1>
+  </header>
+  <div class="list-collections-template__grid">
+    {% for collection in collections %}
+      {% if collection.all_products_count > 0 and collection.title != 'Home page' %}
+        <article class="collection-card">
+          <a href="{{ collection.url }}" class="collection-card__media">
+            {% if collection.image %}
+              <img src="{{ collection.image | image_url: width: 800 }}" alt="{{ collection.image.alt | escape }}" loading="lazy">
+            {% else %}
+              <div class="collection-card__placeholder"></div>
+            {% endif %}
+          </a>
+          <div class="collection-card__content">
+            <h2 class="collection-card__title"><a href="{{ collection.url }}">{{ collection.title }}</a></h2>
+            {% if collection.description != blank %}
+              <p class="collection-card__excerpt">{{ collection.description | strip_html | truncate: 120 }}</p>
+            {% endif %}
+          </div>
+        </article>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection list",
+  "settings": []
+}
+{% endschema %}

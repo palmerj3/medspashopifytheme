@@ -1,0 +1,45 @@
+<section class="blog-template">
+  <header class="blog-template__header">
+    <h1 class="blog-template__title">{{ blog.title }}</h1>
+    {% if blog.metafields.custom.subtitle %}
+      <p class="blog-template__subtitle">{{ blog.metafields.custom.subtitle }}</p>
+    {% endif %}
+  </header>
+  {% paginate blog.articles by section.settings.articles_per_page %}
+    <div class="blog-template__grid">
+      {% for article in blog.articles %}
+        <article class="blog-card">
+          <a href="{{ article.url }}" class="blog-card__media">
+            {% if article.image %}
+              <img src="{{ article.image | image_url: width: 1200 }}" alt="{{ article.image.alt | escape }}" loading="lazy">
+            {% endif %}
+          </a>
+          <div class="blog-card__content">
+            <p class="blog-card__meta">{{ article.published_at | date: format: 'month_day_year' }}</p>
+            <h2 class="blog-card__title"><a href="{{ article.url }}">{{ article.title }}</a></h2>
+            <p class="blog-card__excerpt">{{ article.excerpt | strip_html | truncate: 140 }}</p>
+            <a class="btn btn--ghost" href="{{ article.url }}">{{ 'blogs.article.read_more' | t }}</a>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+    {% render 'pagination', paginate: paginate %}
+  {% endpaginate %}
+</section>
+
+{% schema %}
+{
+  "name": "Blog",
+  "settings": [
+    {
+      "type": "range",
+      "id": "articles_per_page",
+      "label": "Articles per page",
+      "min": 3,
+      "max": 24,
+      "step": 3,
+      "default": 9
+    }
+  ]
+}
+{% endschema %}

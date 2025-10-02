@@ -1,0 +1,104 @@
+<footer class="site-footer" role="contentinfo">
+  <div class="site-footer__top">
+    <div class="site-footer__branding">
+      <h2 class="site-footer__title">{{ section.settings.heading }}</h2>
+      <p class="site-footer__subtitle">{{ section.settings.subheading }}</p>
+      {% if section.settings.show_socials and section.blocks.size > 0 %}
+        <ul class="social-links" role="list">
+          {% for block in section.blocks %}
+            <li>
+              <a href="{{ block.settings.link }}" target="_blank" rel="noreferrer" class="social-links__item">{{ block.settings.label }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+    <div class="site-footer__newsletter">
+      <h3 class="site-footer__newsletter-title">{{ section.settings.newsletter_heading }}</h3>
+      {% form 'customer', id: 'FooterNewsletter' %}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <div class="form-field">
+          <input type="email" name="contact[email]" value="{{ form.email }}" placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}" aria-label="{{ 'general.newsletter_form.email_placeholder' | t }}" required>
+          <button class="btn" type="submit">{{ section.settings.newsletter_cta }}</button>
+        </div>
+        {% if form.posted_successfully? %}
+          <p class="form-success">{{ 'general.newsletter_form.confirmation' | t }}</p>
+        {% elsif form.errors %}
+          <p class="form-error">{{ form.errors | default_errors }}</p>
+        {% endif %}
+      {% endform %}
+    </div>
+  </div>
+  <div class="site-footer__bottom">
+    <small>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. {{ section.settings.copyright_text }}</small>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Glow with confidence"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Curated medspa experiences and skincare"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_socials",
+      "label": "Show social links",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "newsletter_heading",
+      "label": "Newsletter heading",
+      "default": "Stay in the glow"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_cta",
+      "label": "Newsletter CTA",
+      "default": "Join"
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright text",
+      "default": "All rights reserved."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Social link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Instagram"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "URL"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Footer"
+    }
+  ]
+}
+{% endschema %}
