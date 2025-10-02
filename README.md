@@ -33,3 +33,17 @@ templates/       JSON templates for Online Store 2.0
    - Connect collections to the featured product grid.
 
 Deploy the theme with `shopify theme push` once you're satisfied with the configuration.
+
+## Static preview on GitHub Pages
+
+The repository now includes a `/docs` directory containing a production-ready HTML preview that mirrors the default homepage sections (hero, feature tiles, featured products, team highlight, testimonials, newsletter, and footer) with representative content.
+
+To publish the preview:
+
+1. Push the repository to GitHub.
+2. Open **Settings → Pages** in your GitHub project.
+3. Under **Build and deployment**, choose **Deploy from a branch**.
+4. Select your default branch (for example, `main`) and set the folder to `/docs`.
+5. Save the configuration. GitHub Pages will deploy the static preview to `https://<username>.github.io/<repository>/`.
+
+You can customize the sample imagery and copy directly in `docs/index.html`. The preview reuses the theme's `assets/theme.css` and `assets/theme.js`, so any design refinements to the core theme automatically cascade to the hosted demo.
